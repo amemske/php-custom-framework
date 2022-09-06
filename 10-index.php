@@ -1,8 +1,11 @@
 <?php
+
+require '09-functions.php';
+
 class Task {
     //properties
-    protected $description;
-    protected $completed = false;
+    public $description;
+    public $completed = false;
 
     public function __construct($description) //constructor means automatically triggered on instantiation
     {
@@ -19,8 +22,20 @@ class Task {
 }
 
 
-$task = new Task('Go to the store');//an instance of a class is an object
+//$task = new Task('Go to the store');//an instance of a class is an object 
+//$task->complete(); //task complete
+//var_dump($task->isComplete());
 
-$task->complete(); //task complete
+//array of objects
+$tasks = [
+    new Task('Go to the store'),
+    new Task('Clean the room'),
+    new Task('Finish PHP lessons')
+];
 
-var_dump($task->isComplete());
+dd($tasks); //- custom function to var_dump
+
+$tasks[0]->complete(); //complete the first task
+
+//add the view
+require '10-index.view.php';
