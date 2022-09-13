@@ -14,7 +14,7 @@ public function __construct($pdo){ //a constructor defines all the things requir
         $statements->execute();
         
         //$tasks = $statements->fetchAll(PDO::FETCH_OBJ);
-        return $statements->fetchAll(PDO::FETCH_CLASS);
+        return $statements->fetchAll(PDO::FETCH_CLASS); //$intoClass - Name of the Class
         
         //dd($tasks[0]->Description);
         

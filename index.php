@@ -1,24 +1,21 @@
 <?php
 
+$database = require 'core/bootstrap.php';
 
+//die(var_dump($app));
 
-require 'database/Connection.php';
-require 'database/QueryBuilder.php';
-require 'Task.php';
+//$router  = new Router();
 
+//require 'routes.php';
 
-//prepare sql statements
-//execute them
-//fetch them
-
-$pdo = Connection::make();//static method
-
-$query = new QueryBuilder($pdo); //public method
-
-$tasks = $query->selectAll('todos');
+//var_dump(trim($_SERVER['REQUEST_URI'], '/'));
 
 
 
+//require $router->direct($uri);
 
 
-require 'index.view.php';
+$router =  Router::load('routes.php'); //Router Load this file
+
+require $router->direct(Request::uri()); // direct traffic
+?>
