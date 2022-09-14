@@ -1,5 +1,8 @@
 <?php
 
+//always make sure you require the autoloader to load depenancies
+require 'vendor/autoload.php';
+
 $database = require 'core/bootstrap.php';
 
 //die(var_dump($app));
@@ -17,5 +20,5 @@ $database = require 'core/bootstrap.php';
 
 $router =  Router::load('routes.php'); //Router Load this file
 
-require $router->direct(Request::uri()); // direct traffic
+require $router->direct(Request::uri(), Request::method()); // direct traffic
 ?>
